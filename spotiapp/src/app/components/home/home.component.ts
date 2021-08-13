@@ -11,13 +11,16 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 export class HomeComponent {
   // paises: any[] = [];
   nuevaMusica: any[] = [];
+  loading: boolean;
 
 
   constructor(private spotify: SpotifyService) { 
+
+    this.loading = true;
     this.spotify.getNewReleases()
       .subscribe((data: any) => {
-        console.log(data.albums.items)
-        this.nuevaMusica = data.albums.items;
+        this.nuevaMusica = data
+        this.loading = false;
       })
   }
 
