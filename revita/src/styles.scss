@@ -1,0 +1,124 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '~@angular/material' as mat;
+// Plus imports for other components in your app.
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$revita-primary: mat.define-palette(mat.$indigo-palette);
+$revita-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+// The warn palette is optional (defaults to red).
+$revita-warn: mat.define-palette(mat.$red-palette);
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$revita-theme: mat.define-light-theme(( color: ( primary: $revita-primary, accent: $revita-accent, warn: $revita-warn, )));
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($revita-theme);
+@import "~bootstrap/dist/css/bootstrap.css";
+
+/* You can add global styles to this file, and also import other style files */
+
+$primary-color: #7AD123;
+$primary-light-color: #8DDE3D;
+$primary-dark-color: #69B31E;
+$secondary-color: #FF7F11;
+$secondary-light-color: #FF8820;
+$secondary-dark-color: #FB7500;
+$text-color: #0F0A0A;
+$link-color: #2B50AA;
+$white-dark-color: #EDEDED;
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: $link-color;
+}
+
+.underline {
+    position: relative;
+}
+
+.underline::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background-color: $primary-light-color;
+    transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .underline:hover::before {
+        left: 0;
+        right: auto;
+        width: 100%;
+    }
+}
+
+.button {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 1.5px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    font-size: 13px;
+    border: 1px solid transparent;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    padding: 1em 1.5em;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+}
+
+.button-main {
+    background-color: $primary-color;
+    border-color: $primary-color;
+    color: white;
+}
+
+.button-main:hover {
+    background-color: $primary-dark-color;
+    border-color: $primary-dark-color;
+}
+
+.button-main-alt {
+    background-color: $secondary-color;
+    border-color: $secondary-color;
+    color: white;
+}
+
+.button-main-alt:hover {
+    background-color: $secondary-dark-color;
+}
+
+.button-secondary {
+    background-color: white;
+    border-color: white;
+    color: $primary-color;
+}
+
+.button-secondary:hover {
+    background-color: $white-dark-color;
+    border-color: $white-dark-color;
+}
