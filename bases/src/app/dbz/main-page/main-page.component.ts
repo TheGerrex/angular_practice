@@ -14,10 +14,5 @@ export class MainPageComponent {
     poder: 10
   }
 
-  // agregarNuevoPersonaje(personaje: Personaje): void {
-  //   this.personajes.push(personaje);
-  // }
-  
-
   constructor(private dbzService: DbzService) {}
 }
