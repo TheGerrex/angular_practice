@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ButtonModule} from 'primeng/button';
 
 @Component({
   selector: 'app-no-comunes',
@@ -23,5 +24,21 @@ export class NoComunesComponent {
     '=2': 'tenemos 2 clientes esperando',
     'other': 'tenemos # clientes esperando',
     
+   }
+
+   cambiarCliente() {
+    this.nombre = "Gerardo"
+    this.genero = "masculino"
+   }
+
+   borrarCliente() {
+    this.clientes.pop();
+   }
+
+   // KeyValue Pipe
+   persona = {
+    nombre: "Gerardo",
+    edad: 23,
+    direccion: "Ottawa, Florida"
    }
 }
