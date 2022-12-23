@@ -1,1 +1,32 @@
-<p>heroe works!</p>
+<div class="spinner-container" *ngIf="!heroe; else divHeroe">
+    <mat-spinner></mat-spinner>
+</div>
+
+
+<ng-template #divHeroe>
+    <div 
+        fxLayout="row"
+        fxLayout.xs="column"
+        fxLayoutGap.xs="30px"
+        fxLayoutGap="30px">
+        <div fxFlex="30" fxFlex.sm="50">
+            <h1>{{heroe.superhero}} - <small>{{heroe.alter_ego}}</small></h1>
+            <img [src]="heroe | imagen">
+        </div>
+        <div fxFlex="70" fxFlex.sm="50">
+            <h1>{{heroe.publisher}}</h1>
+            <mat-divider></mat-divider>
+            
+            <mat-list>
+                <div class="mt" mat-list-item>Primera aparición: <br>{{heroe.first_appearance}}</div>
+                <div class="mt" mat-list-item>Personajes: <br>{{heroe.characters}}</div>
+                <div class="mt" mat-list-item>Editorial: <br>{{heroe.publisher}}</div>
+                <div class="mt" mat-list-item>Alter Ego: <br>{{heroe.alter_ego}}</div>
+            </mat-list>
+            <br>
+            <button mat-button color="warn" (click)="regresar()">
+                Regresar
+            </button>
+        </div>
+    </div>
+</ng-template>
