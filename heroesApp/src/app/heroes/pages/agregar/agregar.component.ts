@@ -8,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AgregarComponent {
 
+  public publishers = [
+    {id: 'DC Comics', value: "DC - Comics"},
+    {id: 'Marvel', value: "Marvel - Comics"},
+  ]
+    
+  
+
 }

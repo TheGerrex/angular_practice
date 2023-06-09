@@ -4,11 +4,7 @@
 
 
 <ng-template #divHeroe>
-    <div 
-        fxLayout="row"
-        fxLayout.xs="column"
-        fxLayoutGap.xs="30px"
-        fxLayoutGap="30px">
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap.xs="30px" fxLayoutGap="30px">
         <div fxFlex="30" fxFlex.sm="50">
             <h1>{{heroe.superhero}} - <small>{{heroe.alter_ego}}</small></h1>
             <img [src]="heroe | imagen">
@@ -16,7 +12,7 @@
         <div fxFlex="70" fxFlex.sm="50">
             <h1>{{heroe.publisher}}</h1>
             <mat-divider></mat-divider>
-            
+
             <mat-list>
                 <div class="mt" mat-list-item>Primera aparición: <br>{{heroe.first_appearance}}</div>
                 <div class="mt" mat-list-item>Personajes: <br>{{heroe.characters}}</div>

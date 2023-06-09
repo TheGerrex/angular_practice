@@ -27,9 +27,9 @@ import { HeroesService } from '../../services/heroes.service';
     `
   ]
 })
-export class HeroeComponent {
+export class HeroeComponent implements OnInit {
 
-  heroe!: Heroe;
+  public heroe!: Heroe;
   constructor(
     private activatedRoute: ActivatedRoute, 
     private heroesService: HeroesService,
@@ -40,7 +40,11 @@ export class HeroeComponent {
     .pipe(
       switchMap( ({id}) => this.heroesService.getHeroePorId(id) )
     )
-    .subscribe(heroe => this.heroe = heroe)
+    .subscribe(heroe => {
+      if (!heroe) return this.router.navigate(['/heroes/listado']);
+      this.heroe = heroe
+      return;
+    })
   }
 
   regresar() {
